@@ -1,7 +1,7 @@
 import React from "react";
 import TypographyPropsType from "./type";
 
-const Typography = ({
+const Typography: React.FC<TypographyPropsType> = ({
   text = "",
   tag = "p",
   children,
@@ -10,7 +10,7 @@ const Typography = ({
   role,
   ariaLabel,
   ariaLabelledBy,
-}: TypographyPropsType) => {
+}) => {
   return React.createElement(
     tag,
     {

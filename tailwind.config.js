@@ -3,9 +3,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#ADD8E6",
-        secondary: "#D3D3D3",
-        tertiary: "#006400",
+        primary: "#005f73",
+        secondary: "#0a9396",
+        tertiary: "#94d2bd",
+        background: "#f4f4f9",
+      },
+      fontFamily: {
+        openSans: ["Open sans", "Roboto", "sans-serif"],
       },
     },
   },

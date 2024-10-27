@@ -1,10 +1,10 @@
 import React from "react";
 import ButtonProps from "./type";
-import classNames from "classnames";
+import getButtonClasses from "./utility";
 
 const Button: React.FC<ButtonProps> = ({
   type = "button",
-  className = "",
+  className,
   style,
   variant,
   children = "Submit",
@@ -12,16 +12,7 @@ const Button: React.FC<ButtonProps> = ({
   isLoading,
   ...rest
 }) => {
-  const buttonClasses = classNames(
-    "py-2 px-4 relative rounded cursor-pointer hover:shadow-md font-bold  overflow-hidden",
-    {
-      "bg-primary text-black": variant === "primary",
-      "bg-secondary text-black": variant === "secondary",
-      "bg-tertiary text-white": variant === "tertiary",
-      "cursor-wait": isLoading,
-    },
-    className
-  );
+  const buttonClasses = getButtonClasses({variant, className, isLoading});
   return (
     <button
       className={buttonClasses}

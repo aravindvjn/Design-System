@@ -1,5 +1,4 @@
 interface TypographyPropsType {
-    text?: string,
     tag?: keyof JSX.IntrinsicElements;
     className?: string;
     children?: React.ReactNode;

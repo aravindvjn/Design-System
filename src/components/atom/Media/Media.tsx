@@ -1,5 +1,5 @@
-// MediaProps type definition
-import MediaProps from "./type";
+import React from "react";
+import { MediaProps } from "./type";
 import getMediaClasses from "./utility";
 
 const Media = ({
@@ -7,33 +7,22 @@ const Media = ({
   alt = "",
   className = "",
   type = "image",
-  autoplay = false,
-  controls = false,
-  loop = false,
-  muted = false,
-  poster = "",
+  ...rest
 }: MediaProps) => {
   const mediaClasses = getMediaClasses({ className });
-
-  const renderMedia = () => {
-    if (type === "video") {
-      return (
-        <video
-          src={src}
-          className={`${mediaClasses} aspect-video`}
-          autoPlay={autoplay}
-          controls={controls}
-          loop={loop}
-          muted={muted}
-          poster={poster}
-        />
-      );
-    } else {
-      return <img src={src} className={mediaClasses} alt={alt} />;
-    }
-  };
-
-  return <div className="media-container">{renderMedia()}</div>;
+  return type === "video" ? (
+    <video
+      src={src}
+      {...(rest as React.VideoHTMLAttributes<HTMLVideoElement>)}
+      className={`${mediaClasses} aspect-video`}
+    />
+  ) : (
+    <img
+      src={src}
+      className={mediaClasses}
+      alt={alt}
+      {...(rest as React.ImgHTMLAttributes<HTMLImageElement>)}
+    />
+  );
 };
-
 export default Media;

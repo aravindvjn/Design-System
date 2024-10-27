@@ -1,5 +1,6 @@
 import React from "react";
 import TypographyPropsType from "./type";
+import classNames from "classnames";
 
 const Typography: React.FC<TypographyPropsType> = ({
   tag = "p",
@@ -10,10 +11,16 @@ const Typography: React.FC<TypographyPropsType> = ({
   ariaLabel,
   ariaLabelledBy,
 }) => {
+  const typoClasses = classNames(
+    {
+      "text-sm sm:text-md": tag === "p",
+    },
+    className
+  );
   return React.createElement(
     tag,
     {
-      className: className,
+      className: typoClasses,
       style: style,
       role: role,
       "aria-label": ariaLabel,

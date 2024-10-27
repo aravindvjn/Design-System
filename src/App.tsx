@@ -1,12 +1,16 @@
-import "./App.css";
-import Buttons from "./Pages/Buttons";
-import Medias from "./Pages/Medias";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./Pages/Home/Home";
+import Buttons from "./Pages/Button/Buttons";
+import Medias from "./Pages/Media/Medias";
 function App() {
   return (
-    <div className="p-5 py-10 min-h-screen bg-background">
-      <Buttons />
-      <Medias />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/buttons" element={<Buttons />} />
+        <Route path="/medias" element={<Medias />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

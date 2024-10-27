@@ -1,13 +1,15 @@
-interface MediaProps {
+import React from "react";
+
+interface commonMediaProps {
     src?: string;
     alt?: string;
     className?: string;
     type?: 'image' | 'video';
-    autoplay?: boolean;
-    controls?: boolean;
-    loop?: boolean;
-    muted?: boolean;
-    poster?: string;
-    preload?: "auto" | "metadata" | "none";
 }
-export default MediaProps;
+
+export type ImageProps = commonMediaProps & React.ImgHTMLAttributes<HTMLImageElement>;
+export type VideoProps = commonMediaProps & React.VideoHTMLAttributes<HTMLVideoElement>;
+
+export type MediaProps = (ImageProps | VideoProps) & {
+    onError?: () => void;
+};

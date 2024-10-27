@@ -18,6 +18,7 @@ const Button: React.FC<ButtonProps> = ({
       "bg-primary text-black": variant === "primary",
       "bg-secondary text-black": variant === "secondary",
       "bg-tertiary text-white": variant === "tertiary",
+      "cursor-wait": isLoading,
     },
     className
   );
